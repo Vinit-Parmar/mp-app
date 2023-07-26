@@ -74,7 +74,7 @@ function App() {
           <Route exact path="/about">
             <AboutUs mode={mode}/>
           </Route>
-          <Route exact path="/">
+          <Route exact path="/mp-app">
           <TextForm showAlert={showAlert} heading="Enter the Text to analyze" mode={mode}></TextForm>
           </Route>
         </Switch>   
