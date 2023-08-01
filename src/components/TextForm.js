@@ -25,10 +25,7 @@ export default function (props) {
         props.showAlert("First letter of each word capitalized.","success")
     }
     const handleCopy = ()=>{
-        let text = document.getElementById("MyBox");
-        text.select();
-        navigator.clipboard.writeText(text.value);
-        document.getSelection().removeAllRanges();
+        navigator.clipboard.writeText(text);
         props.showAlert("Text copied.","success")
     }
     const handleExtraSpaces = ()=>{
@@ -63,7 +60,7 @@ export default function (props) {
     </div>
     <div className="container my-3" style={{color:props.mode==='dark'?'white':'black'}}>
         <h1>Your Text Summary</h1>
-        <p>{text.split(" ").filter((element)=>{return element.length!==0}).length} words and {text.length} characters</p>
+        <p>{text.split(/\s/).filter((element)=>{return element.length!==0}).length} words and {text.length} characters</p>
         <p>{0.008 * text.split(" ").filter((element)=>{return element.length!==0}).length} Minutes to Read</p>
         <h2>Preview</h2>
         <p>{text.length>0?text:"Nothing to Preview!"}</p>
